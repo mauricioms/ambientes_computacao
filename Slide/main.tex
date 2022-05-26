@@ -32,9 +32,8 @@
 
 \usepackage{algorithm} 
 \usepackage{algpseudocode}
-\usepackage{listings}
-\renewcommand{\lstlistingname}{Algoritimo}
 \usepackage{multirow}
+\usepackage{wrapfig}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -225,6 +224,28 @@
 	\includegraphics[width=0.7\linewidth]{quick_sort_in_c_ordena}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Descobrimos que}
+	\justifying Descobrimos que o algoritmo é um método de ordenação muito conhecida chamada \textbf{QuickSort}.
+	
+	\bigskip
+	
+	\small
+	Quicksort é o algoritmo de ordenação interna mais rápido que se conhece para uma ampla variedade de situações, sendo provavelmente mais utilizado do que qualquer outro algoritmo.
+	
+	\bigskip
+	\begin{wrapfigure}{l}{0.15\textwidth}
+		\includegraphics[width=1\linewidth]{Sir_Tony_Hoare_IMG_5125.jpg}
+	\end{wrapfigure}
+
+	O algoritmo foi inventado por \textbf{Charles Antony Richard Hoare} em 1960, quando visitava a Universidade de Moscou como estudante.
+	
+	\bigskip
+	O algoritmo foi publicado mais tarde por Hoare (1962), após uma série de refinamentos.
+	
+
+\end{frame}
+
 \section{Código em Python}
 \begin{frame}
 	\frametitle{Código em Python}
@@ -242,6 +263,7 @@
 	\justifying
 	\begin{itemize}
 		\item A idéia básica é a de partir o problema de ordenar um conjunto $A = \{a_0, a_1, \cdots, a_{n-1}, a_{n} \}$ com $n$ itens em \textbf{dois problemas menores}.
+		\bigskip
 		\item Os problemas menores são ordenados independentemente e depois os resultados são combinados para produzir a solução do problema maior.
 	\end{itemize}
 \end{frame}
@@ -251,6 +273,8 @@
 	\justifying
 	\begin{itemize}
 		\item \justifying A parte mais delicada deste método é relativa ao procedimento partição, o qual tem que rearranjar o vetor $A = \{ a_{\text{esq}},\cdots, a_{\text{dir}} \}$ através da escolha arbitrária de um item $x$ do vetor chamado \textbf{pivô}.
+		
+		\bigskip
 		
 		\item \justifying Ao final o vetor $A$ estará particionado em uma \textbf{parte esquerda} com chaves \textbf{menores ou iguais} a $x$ e uma \textbf{parte direita} com chaves \textbf{maiores ou iguais} a $x$.
 	\end{itemize}
@@ -308,16 +332,37 @@
 	\begin{center}
 	\animategraphics[loop,width=10cm]{0.5}{an-}{0}{47}
 	\end{center}
+
+	Outra animação de exemplo:
+	\begin{center}
+		\animategraphics[loop,width=5cm]{1.1}{anim-}{0}{69}
+	\end{center}
+
 \end{frame}
 
 \section{Análise de Complexidade} 
 \begin{frame}
 	\frametitle{Análise de Complexidade}
+	\justifying
+	O Quicksort é ineficiênte para conjuntos de dados já ordenados, pois gera a escolha do pivô é inadequada.
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{exemplo1}
+	\end{center}
+	{\tiny
+	\begin{itemize}
+		\item \justifying No exemplo acima escolha sistemática dos extremos de um conjuntos de dados já ordenado leva ao seu \textbf{pior caso}.
 	
-	nossa introdução
-	
+		\item \justifying As partições serão extremamente \textbf{desiguais}, e o procedimento $Ordena(...)$ será chamado recursivamente $n$ vezes, \textbf{eliminando apenas um item} em cada chamada.
+		
+		\item \justifying Esta situação é desastrosa pois o número de comparações chegar ser $\frac{n^{2}}{2}$, e o tamanho da pilha necessária para as chamadas recursivas chega ser de tamanho $n$.
+	\end{itemize}
+	}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Análise de Complexidade}
+	
+\end{frame}
 
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
