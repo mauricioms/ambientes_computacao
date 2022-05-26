@@ -56,7 +56,6 @@ void Particao(TipoIndice Esq, TipoIndice Dir, TipoIndice *i, TipoIndice *j, Tipo
 
 void Ordena(TipoIndice Esq, TipoIndice Dir, TipoItem *A)
 {
-
   TipoIndice i = 0, j = 0;
 
   Particao(Esq, Dir, &i, &j, A);

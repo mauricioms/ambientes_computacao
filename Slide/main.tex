@@ -205,9 +205,24 @@
 \section{Introdução} 
 \begin{frame}
 	\frametitle{Introdução}
+	\justifying O trabalho tem como objetivo:
 	
-	nossa introdução
+	\begin{itemize}
+		\item \justifying traduzir o código escrito na \textit{linguagem C} para a \textit{linguagem Python};
+		\item \justifying compreender o funcionamento do algoritmo proposto;
+		\item \justifying explicar a \textbf{Análise de Complexidade} do código.
+	\end{itemize}
 	
+\end{frame}
+
+\section{Código em C}
+\begin{frame}
+	\frametitle{Código em C}
+	\includegraphics[width=0.7\linewidth]{quick_sort_in_c_particao}
+\end{frame}
+\begin{frame}
+	\frametitle{Código em C}
+	\includegraphics[width=0.7\linewidth]{quick_sort_in_c_ordena}
 \end{frame}
 
 \section{Código em Python}
@@ -219,6 +234,52 @@
 \begin{frame}
 	\frametitle{Código em Python}
 	\includegraphics[width=0.7\linewidth]{quick_sort_in_python_particao}
+\end{frame}
+
+\section{Lógica do Algoritmo}
+\begin{frame}
+	\frametitle{Lógica do Algoritmo}
+	\justifying
+	\begin{itemize}
+		\item A idéia básica é a de partir o problema de ordenar um conjunto $A = \{a_0, a_1, \cdots, a_{n-1}, a_{n} \}$ com $n$ itens em \textbf{dois problemas menores}.
+		\item Os problemas menores são ordenados independentemente e depois os resultados são combinados para produzir a solução do problema maior.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lógica do Algoritmo}
+	\justifying
+	\begin{itemize}
+		\item \justifying A parte mais delicada deste método é relativa ao procedimento partição, o qual tem que rearranjar o vetor $A = \{ a_{\text{esq}},\cdots, a_{\text{dir}} \}$ através da escolha arbitrária de um item $x$ do vetor chamado \textbf{pivô}.
+		
+		\item \justifying Ao final o vetor $A$ estará particionado em uma \textbf{parte esquerda} com chaves \textbf{menores ou iguais} a $x$ e uma \textbf{parte direita} com chaves \textbf{maiores ou iguais} a $x$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lógica do Algoritmo}
+	\justifying
+	Este comportamento pode ser descrito pelo seguinte algoritmo:
+	\begin{enumerate}
+		\item \justifying {\tiny escolha arbitrariamente um item do vetor e o coloque em $x$;}
+		\item \justifying {\tiny percorra o vetor a partir da esquerda até que um item $a_{i} > x$ é encontrado.}
+		\item \justifying {\tiny da mesma forma percorra o vetor a partir da direita até que um item $a_{j} \le x$ é encontrado;}
+		\item \justifying {\tiny como os dois itens $A_{i}$ e $A_{j}$ estão fora de lugar no vetor final então \textbf{troque-os de lugar};}
+		\item \justifying {\tiny continue este processo até que os apontamentos $i$ e $j$ se \textbf{cruzem} em algum pronto do vetor.}
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lógica do Algoritmo}
+	\justifying
+	Ao final o vetor $A = \{ a_{\text{esq}},\cdots, a_{\text{dir}} \}$ está parcionado de tal forma que:
+	
+	\begin{itemize}
+		\item \justifying {\small os itens em $a_{\text{esq}}, a_{\text{esq} + 1}, \cdots, a_{j}$ são \textbf{menores} ou iguais a $x$},
+		\item \justifying {\small os itens em $a_{i}, a_{i+1}, \cdots, a_{dir}$ são \textbf{maiores} ou iguais a $x$}.
+	\end{itemize}
+
 \end{frame}
 
 \section{Passo a Passo} 
