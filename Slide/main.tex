@@ -28,6 +28,13 @@
 
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
 \usepackage{animate}
+\usepackage{quoting}
+
+\usepackage{algorithm} 
+\usepackage{algpseudocode}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Algoritimo}
+\usepackage{multirow}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -203,12 +210,15 @@
 	
 \end{frame}
 
-\section{Código em Python} 
+\section{Código em Python}
 \begin{frame}
 	\frametitle{Código em Python}
-	
-	nossa introdução
-	
+	\includegraphics[width=0.6\linewidth]{quick_sort_in_python_ordena}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Código em Python}
+	\includegraphics[width=0.7\linewidth]{quick_sort_in_python_particao}
 \end{frame}
 
 \section{Passo a Passo} 
@@ -230,7 +240,13 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Passo a Passo}
+	\justifying
+	
+	Animação do exemplo proposto:
+	
+	\begin{center}
 	\animategraphics[loop,width=10cm]{0.5}{an-}{0}{47}
+	\end{center}
 \end{frame}
 
 \section{Análise de Complexidade} 
