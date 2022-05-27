@@ -34,6 +34,7 @@
 \usepackage{algpseudocode}
 \usepackage{multirow}
 \usepackage{wrapfig}
+\usepackage{animate,media9,movie15}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -162,7 +163,7 @@
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title[Trabalho]{Método de Ordenação | QuickSort} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\title[Quick Sort]{Método de Ordenação | QuickSort} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
 
 \subtitle{Código e Análise de Complexidade} % Presentation subtitle, remove this command if a subtitle isn't required
 
@@ -205,16 +206,17 @@
 \begin{frame}
 	\frametitle{Introdução}
 	\justifying O trabalho tem como objetivo:
-	
+	\bigskip
+	\bigskip
+	{\small
 	\begin{itemize}
 		\item \justifying traduzir o código escrito na \textit{linguagem C} para a \textit{linguagem Python};
 		\item \justifying compreender o funcionamento do algoritmo proposto;
 		\item \justifying explicar a \textbf{Análise de Complexidade} do código.
 	\end{itemize}
-	
+	}
 \end{frame}
 
-\section{Código em C}
 \begin{frame}
 	\frametitle{Código em C}
 	\includegraphics[width=0.7\linewidth]{quick_sort_in_c_particao}
@@ -224,9 +226,10 @@
 	\includegraphics[width=0.7\linewidth]{quick_sort_in_c_ordena}
 \end{frame}
 
+\section{História e surgimento}
 \begin{frame}
-	\frametitle{Descobrimos que}
-	\justifying Descobrimos que o algoritmo é um método de ordenação muito conhecida chamada \textbf{QuickSort}.
+	\frametitle{História e surgimento}
+	\justifying Ao analisar o funcionamento do, descobrimos que o algoritmo é um método de ordenação muito conhecido chamada \textbf{QuickSort}.
 	
 	\bigskip
 	
@@ -234,7 +237,7 @@
 	Quicksort é o algoritmo de ordenação interna mais rápido que se conhece para uma ampla variedade de situações, sendo provavelmente mais utilizado do que qualquer outro algoritmo.
 	
 	\bigskip
-	\begin{wrapfigure}{l}{0.15\textwidth}
+	\begin{wrapfigure}{l}{0.18\textwidth}
 		\includegraphics[width=1\linewidth]{Sir_Tony_Hoare_IMG_5125.jpg}
 	\end{wrapfigure}
 
@@ -260,12 +263,24 @@
 \section{Lógica do Algoritmo}
 \begin{frame}
 	\frametitle{Lógica do Algoritmo}
-	\justifying
-	\begin{itemize}
-		\item A idéia básica é a de partir o problema de ordenar um conjunto $A = \{a_0, a_1, \cdots, a_{n-1}, a_{n} \}$ com $n$ itens em \textbf{dois problemas menores}.
+	
+	{\tiny
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{dividir_conquistar}
+	\end{wrapfigure}
+
+	\justifying O QuickSort utiliza de um método para a construção de algoritmos conhecido como \textbf{a estratégia de divisão e conquista}. A estratégia consiste em dividir um problema maior recursivamente em problemas menores até que o problema possa ser resolvido diretamente
+	
+	\bigskip
+	
+	\begin{itemize}		
+		\item \justifying A idéia básica é a de partir o problema de ordenar um conjunto $A = \{a_0, a_1, \cdots, a_{n-1}, a_{n} \}$ com $n$ itens em \textbf{dois problemas menores}.
+		
 		\bigskip
-		\item Os problemas menores são ordenados independentemente e depois os resultados são combinados para produzir a solução do problema maior.
+		
+		\item \justifying Os problemas menores são ordenados independentemente e depois os resultados são combinados para produzir a solução do problema maior.
 	\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}
@@ -283,7 +298,7 @@
 \begin{frame}
 	\frametitle{Lógica do Algoritmo}
 	\justifying
-	Este comportamento pode ser descrito pelo seguinte algoritmo:
+	{\small Este comportamento pode ser descrito pelo seguinte algoritmo:}
 	\begin{enumerate}
 		\item \justifying {\tiny escolha arbitrariamente um item do vetor e o coloque em $x$;}
 		\item \justifying {\tiny percorra o vetor a partir da esquerda até que um item $a_{i} > x$ é encontrado.}
@@ -324,7 +339,7 @@
 	\includegraphics[width=0.9\linewidth]{o4}
 \end{frame}
 \begin{frame}
-	\frametitle{Passo a Passo}
+	\frametitle{Animações}
 	\justifying
 	
 	Animação do exemplo proposto:
@@ -340,11 +355,30 @@
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Vídeo}
+	\justifying
+	
+	\textbf{Vídeo:} Quick Sort with Hungarian, folk dance:
+	
+\begin{figure}
+	\movie[width=10cm,height=6cm,poster]{}{video.mp4}
+	%    \animategraphics[controls,autoplay,loop,scale=0.5]{10}{Wildlife}{}{}
+	%    \includemovie[autoplay]{Wildlife.wmv}
+	
+	%\includemovie[poster,autoplay,externalviewer,inline=false,text={\small(Quick Sort with Hungarian, folk dance)}]{10cm}{6cm}{video.mp4}
+	
+	%    \flashmovie{Wildlife.wmv}
+\end{figure}
+	
+\end{frame}
+
 \section{Análise de Complexidade} 
 \begin{frame}
-	\frametitle{Análise de Complexidade}
-	\justifying
-	O Quicksort é ineficiênte para conjuntos de dados já ordenados, pois gera a escolha do pivô é inadequada.
+	\frametitle{Análise de Complexidade | Pior Caso}
+	{\tiny \justifying
+	O Quicksort é ineficiente para conjuntos de dados já \underline{ordenados de maneira crescente e decrescente} e também se \underline{todos os elementos} do conjunto \underline{forem iguais}, pois a escolha do pivô se torna inadequada.}
+	
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{exemplo1}
 	\end{center}
@@ -357,12 +391,72 @@
 		\item \justifying Esta situação é desastrosa pois o número de comparações chegar ser $\frac{n^{2}}{2}$, e o tamanho da pilha necessária para as chamadas recursivas chega ser de tamanho $n$.
 	\end{itemize}
 	}
+
+	\begin{center}
+		Sendo a \textbf{classe de complexidade} do \textbf{pior caso} igual a $O(n^{2})$.
+	\end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Análise de Complexidade}
+	\frametitle{Análise de Complexidade | Melhor Caso}
 	
+	{\small
+	\begin{itemize}
+		\item A melhor situação possível ocorre quando cada partição divide o arquivo em duas partes iguais.
+		\item Sendo sua função de complexidade:
+		
+		\begin{center}
+			$C(n) = 2*C\bigg(\frac{n}{2}\bigg) + n - 1$
+		\end{center}
+		
+		\item Onde $C\bigg(\frac{n}{2}\bigg)$ representa o custo de ordenar uma das metades e $n$ é o custo de examinar cada item.
+	\end{itemize}
+	}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Análise de Complexidade | Caso Médio}
+	
+	{\small
+		\begin{itemize}
+			\item A solução para esta recorrência é $C(n) = n*\log(n) - n + 1$.
+			\item Segundo \textbf{Sedgewick} e \textbf{Flajolet} (1996, p. 17) o caso médio do número de comparações realizadas são de: 
+		
+			\begin{center}
+			$C(n) \approx 1.386 * n*\log(n) - 0.846*n$
+			\end{center}
+	
+			\item Significa que a \textbf{classe de complexidade} do \textbf{tempo médio} da execução é:
+			\begin{center}
+			$O\bigg(n*\log(n)\bigg)$.
+			\end{center}
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Classificações}
+	{\tiny
+	\begin{table}[]
+		\begin{tabular}{l|l}
+			Classe & Algoritmo de ordenação \\
+			\\ \hline \\
+			Estrutura de Dados & Array, Listas ligadas \\
+			\\ \hline \\
+			Complexidade do Pior Caso & $O(n^{2})$ \\
+			\\ \hline \\
+			Complexidade do Caso Médio & $O\bigg(n*\log(n)\bigg)$ \\
+			\\ \hline \\
+			Complexidade do Melhor Caso & $O\bigg(n*\log(n)\bigg)$ \\
+			\\ \hline \\
+			Complexidade do Pior Caso de Espaços & $O(n)$ \\ 
+			\\ \hline \\
+			Estabilidade & \textbf{Não}-Estável
+		\end{tabular}
+	\end{table}
+	}
+\end{frame}
+
 
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
